@@ -44,14 +44,14 @@ jobs:
         sourceUrl="https://github.com/${{ github.repository }}/releases/download/10.9/v${{ env.NEW_FILE_VERSION }}/intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip"
         echo "SOURCE_URL=$sourceUrl" >> $GITHUB_ENV
         md5sum intro-skipper1-v${{ env.NEW_FILE_VERSION }}.zip > intro-skipper-v${{ env.NEW_FILE_VERSION }}.md5
-        checksum="$(awk '{print $1}' intro-skipper-v${{ env.NEW_FILE_VERSION }}.md5)"
+        checksum="$(awk '{print $1}' intro-skipper1-v${{ env.NEW_FILE_VERSION }}.md5)"
         echo "CHECKSUM=$checksum" >> $GITHUB_ENV
         timestamp="$(date +%FT%TZ)"
         echo "TIMESTAMP=$timestamp" >> $GITHUB_ENV
 
     - name: Create new release with tag
       if: github.event_name != 'pull_request'
-      run: gh release create "10.9.ivo/v${{ env.NEW_FILE_VERSION }}" "intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip" --title "v${{ env.NEW_FILE_VERSION }}" --latest
+      run: gh release create "10.9.1/v${{ env.NEW_FILE_VERSION }}" "intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip" --title "v${{ env.NEW_FILE_VERSION }}" --latest
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
