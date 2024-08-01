@@ -37,7 +37,7 @@ jobs:
       run: dotnet build --no-restore
 
     - name: Create archive
-      run: zip -j "intro-skipper1-v${{ env.NEW_FILE_VERSION }}.zip" ConfusedPolarBear.Plugin.IntroSkipper/bin/Debug/net8.0/ConfusedPolarBear.Plugin.IntroSkipper.dll
+      run: zip -j "intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip" ConfusedPolarBear.Plugin.IntroSkipper/bin/Debug/net8.0/ConfusedPolarBear.Plugin.IntroSkipper.dll
       
     - name: Generate manifest keys
       run: |
