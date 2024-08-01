@@ -41,7 +41,7 @@ jobs:
       
     - name: Generate manifest keys
       run: |
-        sourceUrl="https://github.com/${{ github.repository }}/releases/download/10.9/v${{ env.NEW_FILE_VERSION }}/intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip"
+        sourceUrl="https://github.com/${{ github.repository }}/releases/download/10.9:iVO/v${{ env.NEW_FILE_VERSION }}/intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip"
         echo "SOURCE_URL=$sourceUrl" >> $GITHUB_ENV
         md5sum intro-skipper-v${{ env.NEW_FILE_VERSION }}.zip > intro-skipper-v${{ env.NEW_FILE_VERSION }}.md5
         checksum="$(awk '{print $1}' intro-skipper-v${{ env.NEW_FILE_VERSION }}.md5)"
